@@ -90,6 +90,7 @@ section{padding:5rem 0}
   text-transform:uppercase;letter-spacing:-.01em;margin-top:.8rem;
 }
 .section-head p{color:var(--gray);max-width:54ch;margin-top:1rem}
+#sponsorship .section-head p{max-width:100%}
 
 /* corner-tick framed box (signature) */
 .ticked{position:relative}
@@ -120,32 +121,8 @@ section{padding:5rem 0}
 }
 .hero-bg{
   position:absolute;inset:0;z-index:0;
-  background:linear-gradient(180deg,rgba(15,15,20,1) 0%,rgba(10,10,15,1) 100%);
+  background:#000;
   overflow:hidden;
-}
-.hero-bg .lightning{
-  position:fixed;top:0;width:30px;height:100vh;
-  opacity:0;
-  animation:lightning-strike 3s ease-in-out infinite;
-}
-.hero-bg .lightning svg{
-  width:100%;height:100%;color:var(--red);
-  filter:drop-shadow(0 0 10px var(--red)) drop-shadow(0 0 20px var(--red));
-}
-.hero-bg .lightning:nth-child(1){left:20%;animation-delay:0s}
-.hero-bg .lightning:nth-child(2){left:40%;animation-delay:0.7s}
-.hero-bg .lightning:nth-child(3){left:60%;animation-delay:1.4s}
-.hero-bg .lightning:nth-child(4){left:80%;animation-delay:2.1s}
-.hero-bg .lightning:nth-child(5){left:30%;animation-delay:0.3s}
-.hero-bg .lightning:nth-child(6){left:70%;animation-delay:1s}
-.hero-bg .lightning:nth-child(7){left:50%;animation-delay:1.7s}
-@keyframes lightning-strike{
-  0%{opacity:0}
-  5%{opacity:1}
-  10%{opacity:0.3}
-  15%{opacity:1}
-  20%{opacity:0}
-  100%{opacity:0}
 }
 .hero-inner{position:relative;z-index:1;width:100%;padding:4rem 0}
 .hero h1{
@@ -400,13 +377,17 @@ footer{
 .tl p{color:var(--gray);font-size:.84rem}
 
 /* subteams */
-.subteams{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.subteams{display:flex;flex-direction:column;gap:1rem}
+.subteam-row{display:grid;gap:1rem}
+.subteam-row.row-1{grid-template-columns:1fr;justify-content:center}
+.subteam-row.row-2{grid-template-columns:repeat(2,1fr)}
+.subteam-row.row-3{grid-template-columns:repeat(2,1fr)}
 .subteam{border:1px solid var(--line);background:var(--panel);padding:1.6rem;cursor:pointer;transition:.15s ease}
 .subteam:hover{border-color:var(--red);transform:translateY(-2px)}
 .subteam svg{width:32px;height:32px;color:var(--red);margin-bottom:1rem}
 .subteam h4{font-family:'Archivo',sans-serif;font-weight:800;text-transform:uppercase;font-size:1.05rem;margin-bottom:.5rem}
 .subteam p{color:var(--gray);font-size:.86rem}
-.subteam.manager-box{grid-column:1/-1;max-width:400px;margin:0 auto}
+.subteam.manager-box{max-width:400px;margin:0 auto}
 
 /* Subteam Modal */
 .subteam-modal{
@@ -448,6 +429,9 @@ footer{
 }
 .member-headshot img{
   width:100%;height:100%;object-fit:cover;
+}
+.member-headshot img.adjust-top{
+  object-position:center 25%;
 }
 .member-headshot svg{
   width:32px;height:32px;color:var(--gray-dim);
@@ -492,7 +476,7 @@ footer{
   .timeline{grid-template-columns:repeat(2,1fr)}
   .tl:nth-child(2){border-right:none}
   .tl:nth-child(1),.tl:nth-child(2){border-bottom:1px solid var(--line)}
-  .subteams{grid-template-columns:repeat(2,1fr)}
+  .subteam-row.row-2,.subteam-row.row-3{grid-template-columns:1fr}
   .why-grid{grid-template-columns:1fr;gap:1.4rem}
   .tiers{grid-template-columns:1fr}
 }
@@ -500,7 +484,6 @@ footer{
   .timeline{grid-template-columns:1fr}
   .tl{border-right:none;border-bottom:1px solid var(--line)}
   .tl:last-child{border-bottom:none}
-  .subteams{grid-template-columns:1fr}
 }
 
 /* ============================================================
